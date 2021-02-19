@@ -8,11 +8,12 @@ if __name__ == '__main__':
 
     #def sedigism_extract():
         # Inputs of function
-        line = '13CO21'
-        fieldcenter = '001'
-        clon = 1.0  # Galatic longtitude of extracted cube [deg]
-        clat = 0.0 # Galatic latitutde of extracted cube [deg]
-        extsize = 900 # half size of the extracted cube [arcsecond] (e.g. +/- 100")
+        line = 13   # V0: 13/18, V1: 13/18/'13'/'18'/'13CO'/'C18O' all supported. note the filename in the webpage is lowercase as c18o21
+        # fieldcenter = '001'   # should be calculated automatically from the input.
+        clon = 355.7  # Galatic longtitude of extracted cube [deg]
+        clat = -0.4 # Galatic latitutde of extracted cube [deg]
+        extSizeL = 900 # half size of the extracted cube [arcsecond] (e.g. +/- 100")
+         
 
         # Read in datacube
         fitfile = 'G'+fieldcenter+'_'+line+'_Tmb_DR1.fits'
