@@ -8,20 +8,18 @@ if __name__ == '__main__':
 
     #def sedigism_extract():
         # Inputs of function
+        # In astronomy, lonLeft > lonRight, latBottom < latTop
+        lonLeft = 355.7     # clon + extSizeL / 2
+        lonRight = 354.9    # clon - extSizeL / 2
+        latBottom = -0.2    # clat - extSizeB / 2
+        latTop  = +0.1      # clat + extSizeB / 2
+        clon = ( lonLeft + lonRight ) / 2
+        clat = ( latBottom + latTop ) / 2
+        extSizeL = ( lonLeft - lonRight ) / 2   # in deg, or we use quantities here.
+        extSizeB = ( latBottom - latTop ) / 2
         
-        '''
-        line = 13   # V0: 13/18, V1: 13/18/'13'/'18'/'13CO'/'C18O' all supported. note the filename in the webpage is lowercase as c18o21
-        # fieldcenter = '001'   # should be calculated automatically from the input.
-        clon = 355.7  # Galatic longtitude of extracted cube [deg]
-        clat = -0.4 # Galatic latitutde of extracted cube [deg]
-        extSizeL = 900 # half size of the extracted cube [arcsecond] (e.g. +/- 100")
-         
-
-        # Read in datacube
-        fitfile = 'G'+fieldcenter+'_'+line+'_Tmb_DR1.fits'
-        datacube = fits.open(fitfile)[0]
-        '''
         line = 13   
+        
         if line == 13 or line == '13' or line == '13CO':
             lineFilename = '13CO21'     # the filename in the webpage
             lineHeader = '13CO J=2-1'   # the name in header['COMMENT'] or somewhere
@@ -37,11 +35,6 @@ if __name__ == '__main__':
         #clon = 355.7  # Galatic longtitude of extracted cube [deg]
         #clat = -0.4 # Galatic latitutde of extracted cube [deg]
         #extSizeL = 900 # half size of the extracted cube [arcsecond] (e.g. +/- 100")
-        
-        # In astronomy, lonLeft > lonRight, latBottom < latTop
-        lonLeft = 355.7     # clon + extSizeL / 2
-        lonRight = 354.9    # clat - extSizeB / 2
-        clon = ( lonLeft + lonRight ) / 2
         
         # if the longitude range covers two integer, it is too large.
         if np.floor( lonLeft ) - np.ceil( lonRight ) > 0:
