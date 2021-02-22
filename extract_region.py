@@ -62,7 +62,7 @@ if __name__ == '__main__':
                     continue
             elif path == 'MPIfR':
                 try:
-                    path = '/apex-archieve/'
+                    path = '/aux/atlasgalb/www-sedigism/SEDIGISM_DATACUBES_DR1c/'
                     f = open( path + filename )
                     f.close()
                     break
