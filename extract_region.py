@@ -6,7 +6,7 @@ from astropy.wcs import WCS
 
 if __name__ == '__main__':
 
-    #def sedigism_extract():
+    #def sedigism_extract( coord, size, line=13, inputPath=None, outputPath=None, outputFilename=None ):
         # Inputs of function
         # In astronomy, lonLeft > lonRight, latBottom < latTop
         lonLeft = 355.7     # clon + extSizeL / 2
@@ -17,6 +17,7 @@ if __name__ == '__main__':
         clat = ( latBottom + latTop ) / 2
         extSizeL = ( lonLeft - lonRight ) / 2   # in deg, or we use quantities here.
         extSizeB = ( latBottom - latTop ) / 2
+        
         
         line = 13   
         
